@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Remember App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/mediaqueries.css" />
 </head>
 
 <body>
@@ -18,68 +20,96 @@
                 <br>
                 Du har styr på det!
             </p>
-            <!-- drop down menu start -->
             <div class="dropdown">
-                <button class="dropdown-toggle" aria-label="Menu">
+                <button class="btn p-0 border-0 bg-transparent" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="box-shadow:none;line-height:0;background:transparent;height:28px;width:28px;min-width:0;">
+                    <img src="images/dots.svg" alt="Menu"
+                        style="width: 28px; height: 28px; display:block; padding:0; margin:0; border:none; background:transparent; box-shadow:none;" />
                 </button>
-                <div class="dropdown-menu">
-                    <a href="index.html">Profil</a>
-                    <a href="omremember.html">Om Remember?</a>
-                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="index.html">Profil</a></li>
+                    <li><a class="dropdown-item" href="omremember.html">Om Remember?</a></li>
+
+                </ul>
             </div>
         </div>
-        <!--SLUT drop down menu  -->
+
 
         <!--STart avatar hoved -->
         <button class="btn btn-white">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="avatar">
-            <img class="avatar-img" src="ChatGPT%20Image%2023.%20maj%202025,%2012.30.00.png">
+            <img class="avatar-img" src="images/profil.png">
         </div>
     </div>
     <!--SLUT avatar hoved -->
 
-    <!--START Toggle knapper -->
     <div class="main-container">
-        <!-- Nanna 5: Container der skifter farve med toggle -->
+
+        <!--START Toggle knapper -->
         <div id="tasks-container" class="main-tasks-container">
-            <!-- Tasks will be dynamically generated here -->
+            <!-- Her vil opgaverne blive genereret dynamisk -->
         </div>
         <!--SLUT Toggle knapper -->
 
-        <!-- Template til omremember indhold -->
-        <template id="omremember-template">
-            <div class="main-container3">
-                <h4>Hej, jeg hedder Nanna.</h4>
-                <p>Jeg har altid følt mig lidt anderledes.</p>
-                <p>Jeg havde brug for ting, som andre ikke forstod – jeg glemte små hverdagsting, og det var næsten
-                    umuligt at
-                    fokusere på noget, der ikke fangede min interesse.</p>
-                <p>Som 30-årig fik jeg diagnosen <strong>ADHD</strong> – og pludselig gav det hele mening.</p>
-                <p>Derfor har jeg lavet den her app.</p>
-                <p>Den er til dig, der også får den der urolige følelse i kroppen: "Låste jeg døren?" eller "Slukkede
-                    jeg
-                    stearinlyset?"</p>
-                <p>Måske du har vendt bilen, taget toget hjem igen – bare for at være sikker.</p>
-                <p>Den her app er til dig.</p>
-                <h5>Til os.</h5>
-                <p><a href="#" id="return-to-tasks">Retur til mine opgaver</a></p>
-            </div>
-        </template>
-
-        <!-- Tilføj knap til at loade template -->
-        <!-- Knappen er fjernet, da load nu bindes til menu-punkt -->
 
         <!--START footer knap -->
         <button class="knaptilføj" aria-label="Tilføj">
-            <img src="plus-svgrepo-com.svg" alt="">
+            <img src="images/plus.svg" alt="">
         </button>
+        <!--SLUT footer knap -->
     </div>
-    <!--SLUT footer knap -->
+    <div class="desktop-menu-links">
+        <a href="index.html" class="me-3">Profil</a>
+        <a href="omremember.html">Om Remember?</a>
+    </div>
 
+    <!-- Bootstrap Ja/Nej Modal til sletning af opgave -->
+    <div class="modal fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="deleteTaskModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteTaskModalLabel">Bekræft sletning</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
+                </div>
+                <div class="modal-body">
+                    Er du sikker på at opgaven skal slettes?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nej</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteTaskBtn">Ja</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SLUT Modal -->
 
-    <script src="js.js"></script>
+    <!-- Bootstrap Ja/Nej Modal til tilføj opgave -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTaskModalLabel">Tilføj opgave</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="addTaskInput" class="form-label">Angiv tekst til opgaven</label>
+                    <input type="text" class="form-control" id="addTaskInput" placeholder="Skriv opgave...">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annullér</button>
+                    <button type="button" class="btn btn-primary" id="confirmAddTaskBtn">Tilføj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SLUT Modal -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 
 </html>

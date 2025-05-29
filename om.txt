@@ -1,0 +1,19 @@
+        <!-- Template til omremember indhold -->
+        <template id="omremember-template">
+            <div class="main-container3">
+                <h4>Hej, jeg hedder Nanna.</h4>
+                <p>Jeg har altid følt mig lidt anderledes.</p>
+                <p>Jeg havde brug for ting, som andre ikke forstod – jeg glemte små hverdagsting, og det var næsten
+                    umuligt at
+                    fokusere på noget, der ikke fangede min interesse.</p>
+                <p>Som 30-årig fik jeg diagnosen <strong>ADHD</strong> – og pludselig gav det hele mening.</p>
+                <p>Derfor har jeg lavet den her app.</p>
+                <p>Den er til dig, der også får den der urolige følelse i kroppen: "Låste jeg døren?" eller "Slukkede
+                    jeg
+                    stearinlyset?"</p>
+                <p>Måske du har vendt bilen, taget toget hjem igen – bare for at være sikker.</p>
+                <p>Den her app er til dig.</p>
+                <h5>Til os.</h5>
+                <p><a href="#" id="return-to-tasks">Retur til mine opgaver</a></p>
+            </div>
+        </template>

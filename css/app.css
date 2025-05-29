@@ -1,0 +1,140 @@
+.knaptilføj {
+    z-index: 1000;
+    /* Sørg for at den er øverst */
+    position: fixed;
+    /* Fast placeret, også når man scroller */
+    left: 50%;
+    bottom: 40px;
+    /* Juster afstand fra bunden */
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background: #FF8360;
+    /* Orange farve - tilpas evt. */
+    color: #FFF8F0;
+    font-size: 70px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+/* Nanna 1: Grøn topsektion */
+.nanna-1 {
+    background-color: #b3e3d3;
+    /* lysegrøn */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 7px solid white;
+    padding: 1rem 1rem 70px;
+}
+
+
+.main-container {
+    background: #FFF8F0;
+    border: 7px solid white;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 0;
+    max-width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding-top: 25px;
+}
+
+
+
+.avatar {
+    position: absolute;
+    bottom: -32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+
+    .avatar-img {
+        width: 120px;
+        height: 120px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border: 7px solid white;
+    }
+}
+
+
+/* Inaktiv (grå) baggrund */
+.nanna-inaktiv {
+    background-color: #808080;
+}
+
+/* Aktiv (lilla) baggrund */
+.nanna-aktiv {
+    background-color: #dbc7f3;
+}
+
+/* Teksten */
+.nanna-tekst {
+    color: white;
+    font-weight: 500;
+}
+
+.nanna-tekst2 {
+    color: #555555FF;
+    padding-bottom: 15px;
+}
+
+/* Toggle-knap */
+.nanna-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+}
+
+.nanna-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.nanna-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1d1d1;
+    border-radius: 999px;
+    transition: 0.4s;
+}
+
+.nanna-slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 3px;
+    bottom: 3px;
+    background-color: black;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.nanna-toggle-switch input:checked+.nanna-slider {
+    background-color: #a8d8cb;
+}
+
+.nanna-toggle-switch input:checked+.nanna-slider::before {
+    transform: translateX(28px);
+    background-color: white;
+}
