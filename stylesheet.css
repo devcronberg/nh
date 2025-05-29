@@ -101,7 +101,8 @@
     padding-top: 25px;
 }
 
-.main-container2 {
+
+/* .main-container2 {
     background-color: #FFF8F0;
     color: #FF8360;
     border-bottom-left-radius: 20px;
@@ -109,7 +110,7 @@
     border: 7px solid white;
     padding: 1rem 1rem 70px;
 
-}
+} */
 
 .main-container3 {
     background-color: #b3e3d3;
@@ -151,14 +152,15 @@
 }
 
 
+
 /* Nanna 2: Opgave-container */
-.nanna-2 {
+/* .nanna-2 {
     border-radius: 999px;
     margin: 10px auto;
     width: 90%;
     max-width: 400px;
     height: 10%;
-}
+} */
 
 /* Teksten i venstre side */
 .nanna-tekst {
@@ -306,21 +308,23 @@
     background-color: white;
 }
 
-.nannaknap {
+
+/* Orange farve - tilpas evt. */
+/* .nannaknap {
     background: #FF8360;
-    /* Orange farve - tilpas evt. */
-    color: #FFF8F0;
-    font-size: 20px;
-    border: none;
-    border-radius: 20%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
+color: #FFF8F0;
+font-size: 20px;
+border: none;
+border-radius: 20%;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0;
 }
 
-.tilføj-wrapper {
+*/
+/* .tilføj-wrapper {
     padding: 10px;
     color: #FFF8F0;
     font-size: 20px;
@@ -330,3 +334,4 @@
     justify-content: center;
     align-items: center;
 }
+*/
