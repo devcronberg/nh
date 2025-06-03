@@ -1,11 +1,16 @@
+/**
+ * UI modul - Remember App
+ * 
+ * Håndterer brugergrænsefladen og interaktioner.
+ * Opretter DOM elementer, håndterer modals og events.
+ */
+
 import { getTasks, addTask, updateTask, deleteTask } from './db.js';
 
 const tasksContainer = document.getElementById("tasks-container");
 
-// Hent opgaver fra localStorage
+// Initialiser applikationen ved at vise eksisterende opgaver
 let tasks = getTasks();
-
-// Ryd containeren først (hvis der er noget)
 tasksContainer.innerHTML = "";
 
 // Generér DOM-elementer for hver opgave og tilføj til containeren
@@ -19,8 +24,9 @@ tasks.forEach(task => {
     });
 });
 
-
-// Udskift prompt med Bootstrap modal til tilføj opgave
+/**
+ * Viser modal til tilføjelse af ny opgave
+ */
 function showAddTaskModal() {
     const input = document.getElementById('addTaskInput');
     if (input) input.value = '';
@@ -33,7 +39,11 @@ function showAddTaskModal() {
     });
 }
 
+/**
+ * Event listeners for knapper og modals
+ */
 document.addEventListener('DOMContentLoaded', () => {
+    // Bekræft sletning af opgave
     const confirmBtn = document.getElementById('confirmDeleteTaskBtn');
     if (confirmBtn) {
         confirmBtn.addEventListener('click', () => {
@@ -47,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Bekræft tilføjelse af opgave
     const addBtn = document.getElementById('confirmAddTaskBtn');
     if (addBtn) {
         addBtn.addEventListener('click', () => {
@@ -62,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Åbn tilføj opgave modal
     const addButton = document.querySelector('.knaptilføj');
     if (addButton) {
         addButton.addEventListener('click', (e) => {
@@ -71,10 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-// Udskift prompt med Bootstrap modal til sletning af opgave
+// Global variabel til at holde styr på hvilken opgave der skal slettes
 let taskIdToDelete = null;
 
+/**
+ * Viser bekræftelsesdialog for sletning af opgave
+ * @param {string} taskId - ID på opgaven der skal slettes
+ */
 export function showDeleteTaskModal(taskId) {
     taskIdToDelete = taskId;
     const modal = new bootstrap.Modal(document.getElementById('deleteTaskModal'));
@@ -82,8 +97,9 @@ export function showDeleteTaskModal(taskId) {
 }
 
 /**
- * Opretter et DOM-element for en opgave baseret på task-objektet.
- * Returnerer et <div> element med samme struktur som de eksisterende opgaver.
+ * Opretter et komplet DOM element for en opgave
+ * @param {Object} task - Opgave objekt med id, text og completed
+ * @returns {HTMLElement} Færdigt DOM element til at indsætte i siden
  */
 export function createTaskElement(task) {
     // Opret container-div
@@ -127,6 +143,12 @@ export function createTaskElement(task) {
     return container;
 }
 
+/**
+ * Tilføjer long-press funktionalitet til et element (til mobile og desktop)
+ * @param {HTMLElement} element - Element der skal have long-press
+ * @param {Function} callback - Funktion der kaldes ved long-press
+ * @param {number} duration - Tid i ms før long-press udløses (default: 500)
+ */
 export function addLongPressListener(element, callback, duration = 500) {
     let timer = null;
 
